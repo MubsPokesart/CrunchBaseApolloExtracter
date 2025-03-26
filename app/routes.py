@@ -131,7 +131,7 @@ def process_files():
             deduped_pipelines = []
             for pipeline in extracted_data['pipelines']:
                 if not is_duplicate_entry(pipeline, processed_results['pipelines'], 
-                                          ['Deal Name', 'Company Name', 'Contact Name']):
+                                          ['Deal Name', 'Company Name', 'Contact Name', 'Contact Email']):
                     deduped_pipelines.append(pipeline)
             
             # Generate email templates only for new contacts
@@ -234,8 +234,9 @@ def download_results():
             
             pipelines_csv = save_to_csv(
                 processed_results['pipelines'], 
-                ['Deal Name', 'Company Name', 'Contact Name', 'Sub-Pipeline', 'Description', 'Stage', 
-                 'Industry Vertical', 'Investment Cycle', 'Contact', 'Sourcing Analyst']
+                ['Deal Name', 'Company Name', 'Contact Name', 'Contact Email', 'Sub-Pipeline', 
+                 'Description', 'Stage', 'Industry Vertical', 'Investment Cycle', 'Contact', 
+                 'Sourcing Analyst']
             )
             
             # Combine email templates into a single text file

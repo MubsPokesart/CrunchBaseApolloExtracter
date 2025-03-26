@@ -246,13 +246,14 @@ def process_html_file(file_content, settings):
         pipelines_data.append({
             'Deal Name': company_name,
             'Company Name': company_name,
-            'Contact Name': founder,
+            'Contact Name': founder,  # Keep original Contact Name
+            'Contact Email': email,   # Add Contact Email
             'Sub-Pipeline': settings['sub_pipeline'],
             'Description': description,
             'Stage': settings['stage'],
             'Industry Vertical': settings['industry_vertical'],
             'Investment Cycle': settings['investment_cycle'],
-            'Contact': founder,
+            'Contact': founder,  # Keep original Contact
             'Sourcing Analyst': settings['sourcing_analyst']
         })
     else:
@@ -277,13 +278,14 @@ def process_html_file(file_content, settings):
         pipelines_data.append({
             'Deal Name': company_name,
             'Company Name': company_name,
-            'Contact Name': unknown_contact,
+            'Contact Name': unknown_contact,  # Keep original Contact Name
+            'Contact Email': email,           # Add Contact Email
             'Sub-Pipeline': settings['sub_pipeline'],
             'Description': description,
             'Stage': settings['stage'],
             'Industry Vertical': settings['industry_vertical'],
             'Investment Cycle': settings['investment_cycle'],
-            'Contact': unknown_contact,
+            'Contact': unknown_contact,  # Keep original Contact
             'Sourcing Analyst': settings['sourcing_analyst']
         })
     
