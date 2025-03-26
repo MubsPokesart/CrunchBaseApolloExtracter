@@ -149,6 +149,7 @@ def get_email_from_apollo(first_name, last_name, company_domain):
     """
     try:
         if not Config.APOLLO_API_KEY or Config.APOLLO_API_KEY == "YOUR_APOLLO_API_KEY":
+            print("No Apollo API key provided. Using placeholder email.")
             # Return a placeholder email for demonstration
             return f"{first_name.lower()}.{last_name.lower()}@{company_domain}"
         
@@ -173,7 +174,8 @@ def get_email_from_apollo(first_name, last_name, company_domain):
             email = data["people"][0].get("email", "")
             if email:
                 return email
-        
+            
+        print("No email found in Apollo")
         # If no email found or API call fails
         return f"{first_name.lower()}.{last_name.lower()}@{company_domain}"
     except Exception as e:

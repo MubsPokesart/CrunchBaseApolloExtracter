@@ -198,7 +198,14 @@ def confirm_process():
         processed_results['contacts'].extend(deduped_contacts)
         processed_results['companies'].extend(deduped_companies)
         processed_results['pipelines'].extend(deduped_pipelines)
-        processed_results['email_templates'].extend(data.get('email_templates', []))
+        # Check if email templates already exist before adding
+        new_email_templates = []
+        for template in data.get('email_templates', []):
+            if template not in processed_results['email_templates']:
+                new_email_templates.append(template)
+                
+        processed_results['email_templates'].extend(new_email_templates)
+
         
         logger.info(f"Confirmed processing: {len(deduped_contacts)} contacts, {len(deduped_companies)} companies, {len(deduped_pipelines)} pipelines")
         
