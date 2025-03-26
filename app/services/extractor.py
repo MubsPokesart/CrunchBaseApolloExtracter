@@ -224,8 +224,10 @@ def process_html_file(file_content, settings):
     companies_data = []
     pipelines_data = []
     
-    # Process each founder as a contact
-    for founder in founders:
+    # Only process the first founder as a contact
+    if founders and len(founders) > 0:
+        # Only use the first founder
+        founder = founders[0]  # Get only the first founder
         first_name, last_name = split_name(founder)
         email = get_email_from_apollo(first_name, last_name, domain)
         
@@ -253,15 +255,8 @@ def process_html_file(file_content, settings):
             'Contact': founder,
             'Sourcing Analyst': settings['sourcing_analyst']
         })
-    
-    # Add to companies data
-    companies_data.append({
-        'Company Name': company_name,
-        'Website': website
-    })
-    
-    # If no founders were found, create entries with unknown contact
-    if not founders:
+    else:
+        # If no founders were found, create entries with unknown contact
         unknown_contact = "Unknown Contact"
         first_name = "Unknown"
         last_name = "Contact"
@@ -291,6 +286,12 @@ def process_html_file(file_content, settings):
             'Contact': unknown_contact,
             'Sourcing Analyst': settings['sourcing_analyst']
         })
+    
+    # Add to companies data
+    companies_data.append({
+        'Company Name': company_name,
+        'Website': website
+    })
     
     return {
         'contacts': contacts_data,

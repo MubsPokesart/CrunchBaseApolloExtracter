@@ -23,7 +23,7 @@ def generate_email_templates(extracted_data, settings):
 Subject Line: {contact['Company Name']} Investment Opportunity - Hillside Ventures Inquiry
 Content:
 
-Hi {contact['First Name']}
+Hi {contact['First Name']}!
 
 I'm {settings['sourcing_analyst']}, an analyst at a student-run venture firm at the University of Connecticut. Our check sizes range from $25,000 to $50,000. In our research, {contact['Company Name']} stood out due to your impactful value proposition. 
 

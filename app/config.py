@@ -10,7 +10,7 @@ class Config:
     DEFAULT_SETTINGS = {
         'prospect_quality_level': 'Prospect',
         'sub_pipeline': 'HV STEM',
-        'stage': 'Reached Out',
+        'stage': '1. Source',
         'industry_vertical': '',
         'industry': '',
         'sourcing_analyst': '',
