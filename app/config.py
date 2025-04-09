@@ -11,6 +11,7 @@ class Config:
         'prospect_quality_level': 'Prospect',
         'sub_pipeline': 'HV STEM',
         'stage': '1. Source',
+        'contact': 'Reached Out',
         'industry_vertical': '',
         'industry': '',
         'sourcing_analyst': '',

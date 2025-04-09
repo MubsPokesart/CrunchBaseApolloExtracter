@@ -19,9 +19,8 @@ def generate_email_templates(extracted_data, settings):
         email_templates = []
         
         for contact in extracted_data['contacts']:
-            template = f"""Email: {contact['Email']}
-Subject Line: {contact['Company Name']} Investment Opportunity - Hillside Ventures Inquiry
-Content:
+            template = f"""{contact['Email']}
+{contact['Company Name']} Investment Opportunity - Hillside Ventures Inquiry
 
 Hi {contact['First Name']}!
 

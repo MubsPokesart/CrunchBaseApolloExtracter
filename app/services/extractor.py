@@ -255,7 +255,7 @@ def process_html_file(file_content, settings):
             'Stage': settings['stage'],
             'Industry Vertical': settings['industry_vertical'],
             'Investment Cycle': settings['investment_cycle'],
-            'Contact': founder,  # Keep original Contact
+            'Contact': settings['contact'],
             'Sourcing Analyst': settings['sourcing_analyst']
         })
     else:
@@ -287,7 +287,7 @@ def process_html_file(file_content, settings):
             'Stage': settings['stage'],
             'Industry Vertical': settings['industry_vertical'],
             'Investment Cycle': settings['investment_cycle'],
-            'Contact': unknown_contact,  # Keep original Contact
+            'Contact': settings['contact'],  # Keep original Contact
             'Sourcing Analyst': settings['sourcing_analyst']
         })
     
